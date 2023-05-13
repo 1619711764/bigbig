@@ -1,7 +1,7 @@
 $(function () {
   // 获取用户基本信息
   getUserInfo();
-  const layer = layui.layer;
+  let layer = layui.layer;
 
   // 实现点击退出按钮跳转页面功能
   $("#btnLogout").on("click", function () {
@@ -22,8 +22,8 @@ $(function () {
 // 获取用户信息
 function getUserInfo() {
   $.ajax({
-    url: "/my/userinfo",
     method: "GET",
+    url: "/my/userinfo",
     // headers:{
     //     Authorization:localStorage.getItem('token') || ''
     // },
@@ -40,7 +40,7 @@ function getUserInfo() {
 
 function renderAvatar(user) {
   // 获取用户的名称
-  const name = user.nickname || user.username;
+  let name = user.nickname || user.username;
   // 设置欢迎的文本
   $("#welcome").html("欢迎&nbsp;&nbsp;" + name);
   // 获取用户头像
